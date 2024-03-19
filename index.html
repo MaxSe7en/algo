@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>counts={[A:3, D: 2, T: 5, A: 22,T:2, D: 15, T: 2 ]}
+    <table>
+        <tbody>
+          <tr>
+            <td>D</td>
+            <td>T</td>
+            <td>D</td>
+            <td>T</td>
+          </tr>
+          <tr>
+            <td>D</td>
+            <td>T</td>
+            <td>D</td>
+            <td>T</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>T</td>
+            <td>D</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>T</td>
+            <td>D</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>T</td>
+            <td>D</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>A</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>A</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>T</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>T</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>;
+</body>
+<!-- <script src="longdragon.js"></script> -->
+<!-- <script src="good.js"></script> -->
+<script src="chairman.js"></script>
+<!-- <script src="chatgpt.js"></script> -->
+<!-- <script src="bst.js"></script> -->
+<script>
+// function generateRandomNumbersArray(count, length) {
+//   const numbersArray = [];
+
+//   for (let i = 0; i < count; i++) {
+//     const numbers = [];
+//     for (let j = 0; j < length; j++) {
+//       const randomNumber = Math.floor(Math.random() * 10);
+//       numbers.push(randomNumber);
+//     }
+//     numbersArray.push(numbers);
+//   }
+
+//   return numbersArray;
+// }
+
+// const drawNumbers = generateRandomNumbersArray(100, 5);
+// console.log(drawNumbers);
+
+</script>
+can you do this such that I can pass an array like so ["B", "S"], ["O","E"], ["D","T", "A"], ["1","2"],["3","4"], ["5", "6"] and count array [2, 5, 6, 2, 5, 6, 2, 4]
+so if i pass eg. ["B", "S"] and [2, 5, 6, 2, 5, 6, 2, 4] it will show in the grid B vertically 2 and break to the next grid column and show S vertically 5 and break to the next grid column and show B vertically 6 and break to the next grid column and show S vertically 2 and break to the next grid column and show B vertically 5 and break to the next grid column and show S vertically 6 and break to the next grid column and show B vertically 2 and break to the next grid column and show S vertically 4
+NB this is right for all the other arrays except ["D","T", "A"] for this an object will be passed eg. {D: 2, T: 5, A: 2} and it will show in the grid D vertically 2 and break to the next grid column and show T vertically 5 continue with A vertically in the same grid it preceeds. it should never break 
+
+<BoxesGrid
+    width={200}
+    height={90}
+    boxWidth={15}
+    boxHeight={15}
+    values={["B", "S"]}
+    counts={[2, 5, 6]}
+/>
+
+expected results in the grid based on the countsarray
+
+B S B
+B S B
+    S B
+    S B
+    S B
+    B
+eg. for ["D","T", "A"] and {D: 2, T: 5, A: 2} it should be like this
+    <BoxesGrid
+    width={200}
+    height={90}
+    boxWidth={15}
+    boxHeight={15}
+    values={["D","T", "A"]}
+    counts={{D: 2, T: 5, A: 2}}
+/>
+D T 
+D T
+  T
+  T
+  T
+  A 
+  A
+
+  the grid boxes should be there  and then be filled with the letters and the letter are shown based on the count eg. counts={{D: 2, T: 5, A: 2, D:3}} D D breaks to next column in grid  T TTTT AA for A it doesnt break to next column but continues and then new column DDD. i.e. for dragontigertie. for any of the others eg. values={["B", "S"]} counts={[2, 5, 6]}  BB then new grid column SSSSS then new grid column BBBBBB
+<h1>&#126980;</h1>
+
+  </html>
